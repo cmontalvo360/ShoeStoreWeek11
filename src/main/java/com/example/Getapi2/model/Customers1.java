@@ -1,8 +1,11 @@
 package com.example.Getapi2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
+//@JsonIgnoreProperties("course")
 @Table(name = "customers")
 public class Customers1 {
 

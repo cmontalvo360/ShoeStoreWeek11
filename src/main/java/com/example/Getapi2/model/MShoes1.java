@@ -1,8 +1,11 @@
 package com.example.Getapi2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
+
 @Table(name = "mensshoes")
 public class MShoes1 {
 

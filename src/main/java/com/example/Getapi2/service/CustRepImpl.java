@@ -5,6 +5,8 @@ import com.example.Getapi2.repo.CustRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public   class CustRepImpl {
 
@@ -18,8 +20,8 @@ public   class CustRepImpl {
         return "Customer added";
     }
     @SuppressWarnings("deprecation")
-    public Customers1 getCustById( int f)
+    public Optional<Customers1> getCustById(int f)
     {
-        return w.getById(f);
+        return w.findById(f);
     }
 }

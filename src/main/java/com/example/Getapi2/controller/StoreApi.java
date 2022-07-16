@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 public class StoreApi {
 
@@ -38,8 +40,8 @@ public class StoreApi {
             a.addCust(t);
             return "Added customer";
         }
-        @PostMapping("/cust2/{f}")
-        public Customers1 getcustbyid(@PathVariable int f)
+        @GetMapping("/cust2/{f}")
+        public Optional<Customers1> getcustbyid(@PathVariable int f)
         {
             return a.getCustById(f);
         }
@@ -56,12 +58,12 @@ public class StoreApi {
             return c.getallshoes();
         }
 
-        @PostMapping("/shoes2/{k}")
-        public MShoes1 findshoebyid(@PathVariable int k)
+        @RequestMapping(value="/shoes2/{k}",method= RequestMethod.GET)
+        public Optional<MShoes1> findshoebyid(@PathVariable int k)
         {
-            return c.findshoebyid(k);
+            return c.findshoebyid(Integer.valueOf(k));
         }
-        @PostMapping("/insertorder1")
+        @PostMapping("/insord1")
         public String insertord( @RequestBody Purchase f)
         {
             d.insertwpurch(f);
@@ -73,10 +75,10 @@ public class StoreApi {
         public List<WShoes1> getallwshoes(){
             return e.getWomensShoes();
         }
-        @PostMapping("/wshoes/{k}")
-        public WShoes1 findwshoebyid(int k)
+        @GetMapping ("/wshoes/{k}")
+        public Optional<WShoes1> findwshoebyid(@PathVariable int k)
         {
-            return e.findShoeById(k);
+            return e.findShoeById( Integer. valueOf(k) );
         }
 
 

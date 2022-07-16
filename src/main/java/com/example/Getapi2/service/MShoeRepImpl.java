@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public  class MShoeRepImpl  {
@@ -16,9 +17,9 @@ public  class MShoeRepImpl  {
     public List<MShoes1> getallshoes(){
         return w.findAll();
     }
-    public MShoes1 findshoebyid(int k)
+    public Optional<MShoes1> findshoebyid(int k)
     {
-        return w.getById(k);
+        return w.findById(k);
     }
 
 }
