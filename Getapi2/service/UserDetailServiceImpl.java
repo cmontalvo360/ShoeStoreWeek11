@@ -1,6 +1,7 @@
 package com.example.Getapi2.service;
 
 import com.example.Getapi2.model.User;
+import com.example.Getapi2.model.UserDetailsImpl;
 import com.example.Getapi2.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +20,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepo.findByUsername(username);
         user.orElseThrow(() -> new UsernameNotFoundException("Credentials didn't match"));
-        return user.map(User::new).get();
+        return user.map(UserDetailsImpl::new).get();
     }
 }
